@@ -9,6 +9,7 @@ import AppKit
 import ServiceManagement
 
 /// 菜单栏 UI 层：管理状态栏图标，区分左/右键，按需构建右键菜单。
+@MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     private let controller = CaffeineController()
