@@ -339,6 +339,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 刷新倒计时项右侧的浅色剩余时间；若已不在定时激活态则恢复纯标题并停表。
+    @MainActor
     private func updateCountdown() {
         guard let item = countdownItem, let remaining = controller.remainingTime, remaining > 0 else {
             countdownTimer?.invalidate()
