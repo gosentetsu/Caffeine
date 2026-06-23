@@ -84,6 +84,9 @@ final class CaffeineController {
         self.preventSleepWhenLidClosed = defaults.bool(forKey: Keys.preventLidClosed)
         self.leftClickDefault = LeftClickDefault(raw: defaults.double(forKey: Keys.leftClickDefault))
         self.lastCustomMinutes = defaults.integer(forKey: Keys.lastCustomMinutes)
+
+        // 启动时安全重置 disablesleep，防止上次异常退出遗留 pmset disablesleep 1。
+        assertion.resetDisableSleepOnLaunch()
     }
 
     // MARK: - 设置
