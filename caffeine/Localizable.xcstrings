@@ -1,0 +1,141 @@
+{
+  "sourceLanguage" : "en",
+  "version" : "1.0",
+  "strings" : {
+    "5 minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "5 分钟" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "5 分鐘" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "5 分" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "5 minutes" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "5 Minuten" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "5 minutos" } }
+      }
+    },
+    "15 minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "15 分钟" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "15 分鐘" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "15 分" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "15 minutes" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "15 Minuten" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "15 minutos" } }
+      }
+    },
+    "1 hour" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "1 小时" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "1 小時" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "1 時間" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "1 heure" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "1 Stunde" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "1 hora" } }
+      }
+    },
+    "Indefinitely" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "永久" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "永久" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "無期限" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Indéfiniment" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Unbegrenzt" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Indefinidamente" } }
+      }
+    },
+    "Custom" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "自定义" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "自訂" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カスタム" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Personnalisé" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Benutzerdefiniert" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Personalizado" } }
+      }
+    },
+    "min" : {
+      "comment" : "时间单位：分钟（自定义输入框）",
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分钟" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "分鐘" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "分" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "min" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Min." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "min" } }
+      }
+    },
+    "Keep awake when lid is closed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "合盖保持唤醒" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "闔蓋保持喚醒" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ふたを閉じてもスリープしない" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Rester actif écran fermé" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Wach bleiben bei geschlossenem Deckel" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Mantener activo con la tapa cerrada" } }
+      }
+    },
+    "Left-click default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "左键默认行为" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "左鍵預設行為" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "左クリックの動作" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Action du clic gauche" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Linksklick-Standard" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Acción del clic izquierdo" } }
+      }
+    },
+    "Launch at Login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "开机自启动" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "開機自動啟動" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ログイン時に起動" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lancer à l’ouverture de session" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Beim Anmelden starten" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Abrir al iniciar sesión" } }
+      }
+    },
+    "About Caffeine" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关于 Caffeine" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "關於 Caffeine" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine について" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "À propos de Caffeine" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Über Caffeine" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Acerca de Caffeine" } }
+      }
+    },
+    "Quit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "退出" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "結束" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "終了" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Quitter" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Beenden" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Salir" } }
+      }
+    },
+    "about.credits" : {
+      "comment" : "关于面板的功能说明文本",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine is a menu bar utility that keeps your Mac awake.\n\n• Left-click the icon to toggle keep-awake.\n• Right-click for a preset or custom duration; it turns off automatically when the time is up.\n• “Keep awake when lid is closed” is best-effort — on Apple silicon it usually requires AC power and an external display." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine 是一款常驻菜单栏的防休眠小工具。\n\n• 左键点击图标：开关防休眠。\n• 右键点击图标：选择预设或自定义时长，到点自动关闭。\n• 「合盖保持唤醒」为尽力实现——在 Apple 芯片的 Mac 上通常需接通电源并外接显示器。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine 是一款常駐選單列的防休眠小工具。\n\n• 左鍵點擊圖示：開關防休眠。\n• 右鍵點擊圖示：選擇預設或自訂時長，時間到自動關閉。\n• 「闔蓋保持喚醒」為盡力實現——在 Apple 晶片的 Mac 上通常需接上電源並外接顯示器。" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine はメニューバー常駐のスリープ防止ユーティリティです。\n\n• アイコンを左クリック：スリープ防止のオン／オフ。\n• 右クリック：プリセットまたはカスタムの時間を選択。時間が来ると自動で解除。\n•「ふたを閉じてもスリープしない」はベストエフォートです。Apple シリコンでは通常、電源接続と外部ディスプレイが必要です。" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine est un utilitaire de barre des menus qui empêche votre Mac de se mettre en veille.\n\n• Clic gauche sur l’icône : activer/désactiver.\n• Clic droit : choisir une durée prédéfinie ou personnalisée ; arrêt automatique à la fin.\n• « Rester actif écran fermé » est au mieux possible — sur Apple silicon, cela nécessite généralement une alimentation secteur et un écran externe." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine ist ein Menüleisten-Dienstprogramm, das deinen Mac wach hält.\n\n• Linksklick auf das Symbol: Wachhalten ein-/ausschalten.\n• Rechtsklick: voreingestellte oder benutzerdefinierte Dauer wählen; schaltet sich nach Ablauf automatisch ab.\n• „Wach bleiben bei geschlossenem Deckel“ ist bestmöglich — auf Apple Silicon sind meist Netzbetrieb und ein externes Display nötig." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine es una utilidad de la barra de menús que evita que tu Mac entre en reposo.\n\n• Clic izquierdo en el icono: activar/desactivar.\n• Clic derecho: elige una duración predefinida o personalizada; se desactiva automáticamente al terminar.\n• «Mantener activo con la tapa cerrada» es el mejor esfuerzo posible: en Apple silicon normalmente requiere alimentación de CA y una pantalla externa." } }
+      }
+    }
+  }
+}
