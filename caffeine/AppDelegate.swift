@@ -12,7 +12,7 @@ import ServiceManagement
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
-    private let controller = CaffeineController()
+    private let controller: CaffeineController
     private var statusItem: NSStatusItem!
 
     /// 当前需要显示倒计时的菜单项（激活某有限时长时），以及菜单打开期间的刷新定时器。
@@ -29,6 +29,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     /// 本地化文案的便捷取值（key 为英文源串，翻译见 Localizable.xcstrings）。
     private func localized(_ key: String) -> String {
         NSLocalizedString(key, comment: "")
+    }
+
+    override init() {
+        self.controller = CaffeineController()
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -62,7 +71,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     /// - 定时 → 有激活状态即为实心
     /// - 合盖保持唤醒 → 仅看合盖开关是否勾选
     /// - 永久 → 有激活状态即为实心
-    @MainActor
     private func updateIcon() {
         guard let button = statusItem.button else { return }
         let isFilled: Bool
@@ -81,7 +89,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - 点击处理
 
     /// 左键：切换防休眠；右键或 Control+左键：弹出菜单。
-    @MainActor
     @objc private func statusItemClicked(_ sender: NSStatusBarButton) {
         let event = NSApp.currentEvent
         let isRightClick = event?.type == .rightMouseUp
@@ -100,7 +107,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - 菜单构建
 
     /// 构建右键菜单。
-    @MainActor
     private func buildMenu() -> NSMenu {
         let menu = NSMenu()
         menu.delegate = self
@@ -189,7 +195,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 构建「左键默认行为」子菜单：顺序与一级菜单一致（预设时长 → 永久 → 合盖保持唤醒）。
-    @MainActor
     private func buildLeftClickSubmenu() -> NSMenu {
         let submenu = NSMenu()
 
@@ -224,7 +229,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 构建「自定义」二级菜单：内含一个直接输入分钟数的输入框。
-    @MainActor
     private func buildCustomSubmenu() -> NSMenu {
         let submenu = NSMenu()
         let initialMinutes = isActiveCustomDuration()
@@ -242,14 +246,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 判断某个时长是否为当前正在生效的激活时长（用于打勾）。
-    @MainActor
     private func isActiveDurationItem(_ seconds: TimeInterval?) -> Bool {
         guard controller.isActive, let seconds else { return false }
         return controller.activeDuration == seconds
     }
 
     /// 判断当前激活的是否为「自定义时长」（既非永久，也不匹配任何预设）。
-    @MainActor
     private func isActiveCustomDuration() -> Bool {
         guard controller.isActive, let active = controller.activeDuration else { return false }
         let presetSeconds = CaffeineController.durationPresets.compactMap { $0.seconds }
@@ -259,7 +261,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - 菜单动作
 
     /// 点选某个预设时长：若当前正按该时长运行则关闭，否则按此时长激活（0 表示永久）。
-    @MainActor
     @objc private func selectDuration(_ sender: NSMenuItem) {
         let seconds = (sender.representedObject as? NSNumber)?.doubleValue ?? 0
         let duration: TimeInterval? = seconds == 0 ? nil : seconds
@@ -272,13 +273,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 切换「合盖也不休眠」。
-    @MainActor
     @objc private func toggleLidClosed(_ sender: NSMenuItem) {
         controller.preventSleepWhenLidClosed.toggle()
     }
 
     /// 设置左键默认动作（互斥单选，仅配置不立即执行）。
-    @MainActor
     @objc private func selectLeftClickDefault(_ sender: NSMenuItem) {
         let raw = (sender.representedObject as? NSNumber)?.doubleValue ?? 0
         controller.leftClickDefault = CaffeineController.LeftClickDefault(raw: raw)
@@ -333,7 +332,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     // MARK: - 倒计时（NSMenuDelegate）
 
-    @MainActor
     func menuWillOpen(_ menu: NSMenu) {
         guard countdownItem != nil else { return }
         updateCountdown()
@@ -351,7 +349,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 刷新倒计时项右侧的浅色剩余时间；若已不在定时激活态则恢复纯标题并停表。
-    @MainActor
     private func updateCountdown() {
         guard let item = countdownItem, let remaining = controller.remainingTime, remaining > 0 else {
             countdownTimer?.invalidate()
@@ -367,7 +364,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 构造「标题 + 右对齐浅色剩余时间」的富文本。
-    @MainActor
     private func countdownTitle(for title: String, remaining: TimeInterval) -> NSAttributedString {
         let font = NSFont.menuFont(ofSize: 0)
         let timeText = formatRemaining(remaining)
@@ -390,7 +386,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 把剩余秒数格式化为 MM:SS（不足 1 小时）或 H:MM:SS。
-    @MainActor
     private func formatRemaining(_ seconds: TimeInterval) -> String {
         let total = Int(seconds.rounded())
         let hours = total / 3600
