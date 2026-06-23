@@ -121,6 +121,11 @@ final class CaffeineController {
     func handleLeftClick() {
         if leftClickDefault == .lidAwake {
             preventSleepWhenLidClosed.toggle()
+            if preventSleepWhenLidClosed {
+                activate(duration: nil)
+            } else {
+                deactivate()
+            }
             return
         }
 
