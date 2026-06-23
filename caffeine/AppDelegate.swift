@@ -268,6 +268,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// 设置左键默认动作（互斥单选，仅配置不立即执行）。
+    @MainActor
     @objc private func selectLeftClickDefault(_ sender: NSMenuItem) {
         let raw = (sender.representedObject as? NSNumber)?.doubleValue ?? 0
         controller.leftClickDefault = CaffeineController.LeftClickDefault(raw: raw)
@@ -322,12 +323,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     // MARK: - 倒计时（NSMenuDelegate）
 
+    @MainActor
     func menuWillOpen(_ menu: NSMenu) {
         guard countdownItem != nil else { return }
         updateCountdown()
         // 菜单追踪期间需把定时器加入 .common 模式，否则不会触发。
         let timer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
-            self?.updateCountdown()
+            MainActor.assumeIsolated { self?.updateCountdown() }
         }
         RunLoop.main.add(timer, forMode: .common)
         countdownTimer = timer
