@@ -69,7 +69,7 @@ Notes:
 git clone https://github.com/gosentetsu/Caffeine.git
 cd Caffeine
 xcodebuild -project caffeine.xcodeproj -scheme caffeine -configuration Release -derivedDataPath ./build clean build
-open ./build/Build/Products/Release/caffeine.app
+open ./build/Build/Products/Release/Caffeine.app
 ```
 
 ### 🛠 Tech Stack
