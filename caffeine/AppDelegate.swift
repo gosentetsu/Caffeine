@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  caffeine
+//  Caffeine
 //
 //  Created on 2026/6/23.
 //
@@ -56,6 +56,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             self?.updateIcon()
         }
 
+        // Helper 需要批准时弹窗引导。
+        controller.assertion.onApprovalNeeded = { [weak self] in
+            self?.showHelperApprovalAlert()
+        }
+
         // 后台异步读取开机自启动状态，避免在主线程同步查询造成优先级反转。
         refreshLaunchAtLoginStatus()
     }
@@ -90,15 +95,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     /// 左键：切换防休眠；右键或 Control+左键：弹出菜单。
     @objc private func statusItemClicked(_ sender: NSStatusBarButton) {
-        let event = NSApp.currentEvent
-        let isRightClick = event?.type == .rightMouseUp
-            || event?.modifierFlags.contains(.control) == true
+        guard let event = NSApp.currentEvent else { return }
+        let isRightClick = event.type == .rightMouseUp
+            || event.modifierFlags.contains(.control)
 
         if isRightClick {
-            // 临时挂上菜单并触发点击弹出，弹出结束后置回 nil，保证下次左键不弹菜单。
-            statusItem.menu = buildMenu()
-            statusItem.button?.performClick(nil)
-            statusItem.menu = nil
+            let menu = buildMenu()
+            NSMenu.popUpContextMenu(menu, with: event, for: sender)
         } else {
             controller.handleLeftClick()
         }
@@ -272,9 +275,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         controller.activate(duration: duration)
     }
 
-    /// 切换「合盖也不休眠」。
+    /// 切换「合盖也不休眠」：翻转标志位并立即激活/关闭断言。
     @objc private func toggleLidClosed(_ sender: NSMenuItem) {
         controller.preventSleepWhenLidClosed.toggle()
+        if controller.preventSleepWhenLidClosed {
+            controller.activate(duration: nil)
+        } else {
+            controller.deactivate()
+        }
     }
 
     /// 设置左键默认动作（互斥单选，仅配置不立即执行）。
@@ -308,6 +316,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             DispatchQueue.main.async {
                 self.launchAtLoginEnabled = enabled
             }
+        }
+    }
+
+    /// 弹出引导面板，告诉用户去系统设置批准 Helper。
+    private func showHelperApprovalAlert() {
+        let alert = NSAlert()
+        alert.messageText = localized("helper.approval.title")
+        alert.informativeText = localized("helper.approval.message")
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: localized("helper.approval.openSettings"))
+        alert.addButton(withTitle: localized("helper.approval.later"))
+        NSApp.activate(ignoringOtherApps: true)
+        if alert.runModal() == .alertFirstButtonReturn {
+            controller.assertion.openApprovalSettings()
         }
     }
 

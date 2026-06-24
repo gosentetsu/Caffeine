@@ -1,6 +1,6 @@
 //
-//  caffeineApp.swift
-//  caffeine
+//  CaffeineApp.swift
+//  Caffeine
 //
 //  Created on 2026/6/23.
 //

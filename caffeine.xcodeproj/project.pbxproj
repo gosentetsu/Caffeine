@@ -55,6 +55,7 @@
 				72FE3ECD2FEA77AC00D92C8A /* Sources */,
 				72FE3ECE2FEA77AC00D92C8A /* Frameworks */,
 				72FE3ECF2FEA77AC00D92C8A /* Resources */,
+				EBC4429E95EA4A35A8C6ADB0 /* Build & Embed PowerHelper */,
 			);
 			buildRules = (
 			);
@@ -120,6 +121,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EBC4429E95EA4A35A8C6ADB0 /* Build & Embed PowerHelper */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/scripts/embed-helper.sh",
+				"${SRCROOT}/PowerHelper/main.swift",
+				"${SRCROOT}/caffeine/PowerHelperProtocol.swift",
+				"${SRCROOT}/PowerHelper/com.caffeine.Caffeine.PowerHelper.plist",
+			);
+			name = "Build & Embed PowerHelper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/MacOS/com.caffeine.Caffeine.PowerHelper",
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Library/LaunchDaemons/com.caffeine.Caffeine.PowerHelper.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "\"${SRCROOT}/scripts/embed-helper.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72FE3ECD2FEA77AC00D92C8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -168,7 +196,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -231,7 +259,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -257,7 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -267,8 +295,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = caffeine.caffeine;
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caffeine.Caffeine;
 				PRODUCT_NAME = Caffeine;
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -288,7 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -298,8 +326,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = caffeine.caffeine;
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caffeine.Caffeine;
 				PRODUCT_NAME = Caffeine;
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

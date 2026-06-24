@@ -136,6 +136,42 @@
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine ist ein Menüleisten-Dienstprogramm, das deinen Mac wach hält.\n\n• Linksklick auf das Symbol: Wachhalten ein-/ausschalten.\n• Rechtsklick: voreingestellte oder benutzerdefinierte Dauer wählen; schaltet sich nach Ablauf automatisch ab.\n• „Wach bleiben bei geschlossenem Deckel“ ist bestmöglich — auf Apple Silicon sind meist Netzbetrieb und ein externes Display nötig." } },
         "es" : { "stringUnit" : { "state" : "translated", "value" : "Caffeine es una utilidad de la barra de menús que evita que tu Mac entre en reposo.\n\n• Clic izquierdo en el icono: activar/desactivar.\n• Clic derecho: elige una duración predefinida o personalizada; se desactiva automáticamente al terminar.\n• «Mantener activo con la tapa cerrada» es el mejor esfuerzo posible: en Apple silicon normalmente requiere alimentación de CA y una pantalla externa." } }
       }
+    },
+    "helper.approval.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Helper Approval Required" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "需要批准 Helper" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "需要批准 Helper" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Helper の承認が必要です" } }
+      }
+    },
+    "helper.approval.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "To enable lid-closed wake, Caffeine needs your approval for the PowerHelper in System Settings.\n\nGo to System Settings → General → Login Items & Extensions, find \"Caffeine PowerHelper\" and enable it." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "要启用合盖保持唤醒，Caffeine 需要在系统设置中批准 PowerHelper。\n\n前往 系统设置 → 通用 → 登录项与扩展，找到「Caffeine PowerHelper」并启用。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "要啟用闔蓋保持喚醒，Caffeine 需要在系統設定中批准 PowerHelper。\n\n前往 系統設定 → 一般 → 登入項目與延伸功能，找到「Caffeine PowerHelper」並啟用。" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "閉じた状態でのスリープ防止を有効にするには、システム設定で PowerHelper を承認する必要があります。\n\nシステム設定 → 一般 → ログイン項目と拡張機能 で「Caffeine PowerHelper」を見つけて有効にしてください。" } }
+      }
+    },
+    "helper.approval.openSettings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open System Settings" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开系统设置" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "打開系統設定" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "システム設定を開く" } }
+      }
+    },
+    "helper.approval.later" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Later" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "稍后" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "稍後" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "あとで" } }
+      }
     }
   }
 }

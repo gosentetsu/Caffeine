@@ -43,6 +43,22 @@ Caffeine is a lightweight, modern menu bar utility that prevents your Mac from s
 | **"Keep awake when lid closed"** | Toggle lid-closed sleep prevention |
 | **"Left-click default"** | Choose what left-click does (indefinite / timed / lid-closed toggle) |
 
+### ⚠️ Lid-closed wake — first-time setup
+
+Keeping the Mac awake with the lid closed requires `pmset disablesleep`, which only runs as **root**. Caffeine ships a tiny privileged helper (an XPC `LaunchDaemon`) for this, so the first time you enable **"Keep awake when lid closed"** macOS will ask you to approve it:
+
+1. Toggle **"Keep awake when lid closed"** in the menu.
+2. Open **System Settings → General → Login Items & Extensions**.
+3. Under **"Allow in the Background"**, turn **Caffeine** on.
+4. Toggle the option again — the lid-closed setting now takes effect.
+
+Notes:
+
+- Verify it worked with `pmset -g live | grep SleepDisabled` — it should read `1` while active and `0` when off.
+- The helper is registered via `SMAppService`. **Run the app from `/Applications`** (not straight from Xcode's DerivedData) — a stable install path avoids macOS Background Task Management caching a stale registration.
+- If approval ever gets stuck after repeated rebuilds, reset the Background Task Management database with `sudo sfltool resetbtm` (system-wide; apps re-register on next launch) and relaunch.
+- Apple silicon laptops generally also need **AC power + an external display** for the lid-closed assertion to hold.
+
 ### 📥 Install
 
 **Download** — grab the latest `Caffeine.dmg` from [Releases](https://github.com/gosentetsu/Caffeine/releases).
@@ -61,7 +77,8 @@ open ./build/Build/Products/Release/caffeine.app
 - **Swift 6** + **AppKit** — native macOS menu bar app
 - **IOKit** — `IOPMAssertionCreateWithName` for system-level sleep prevention
 - **SF Symbols** — native iconography, adapts to light/dark mode
-- **ServiceManagement** — `SMAppService` for launch-at-login
+- **ServiceManagement** — `SMAppService` for launch-at-login and the privileged helper
+- **Privileged XPC helper** — a root `LaunchDaemon` runs `pmset disablesleep` for lid-closed wake
 
 ### 📄 License
 

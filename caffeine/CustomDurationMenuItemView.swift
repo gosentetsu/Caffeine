@@ -1,6 +1,6 @@
 //
 //  CustomDurationMenuItemView.swift
-//  caffeine
+//  Caffeine
 //
 //  Created on 2026/6/23.
 //

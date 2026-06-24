@@ -1,6 +1,6 @@
 //
 //  CaffeineController.swift
-//  caffeine
+//  Caffeine
 //
 //  Created on 2026/6/23.
 //
@@ -56,7 +56,7 @@ final class CaffeineController {
         static let lastCustomMinutes = "lastCustomMinutes"
     }
 
-    private let assertion = PowerAssertionManager()
+    let assertion = PowerAssertionManager()
     private let defaults = UserDefaults.standard
 
     /// 定时自动关闭用的计时器。
@@ -84,9 +84,6 @@ final class CaffeineController {
         self.preventSleepWhenLidClosed = defaults.bool(forKey: Keys.preventLidClosed)
         self.leftClickDefault = LeftClickDefault(raw: defaults.double(forKey: Keys.leftClickDefault))
         self.lastCustomMinutes = defaults.integer(forKey: Keys.lastCustomMinutes)
-
-        // 启动时安全重置 disablesleep，防止上次异常退出遗留 pmset disablesleep 1。
-        assertion.resetDisableSleepOnLaunch()
     }
 
     // MARK: - 设置
